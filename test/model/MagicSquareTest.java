@@ -10,8 +10,21 @@ class MagicSquareTest {
 	
 	void setupScennary1() {
 		magic = new MagicSquare();
+		magic.createSquare(3);
+	}
+	void setupScennary2() {
+		magic = new MagicSquare();
+		magic.createSquare(-3);
 	}
 	
+	@Test
+	void testNegativeArray() {
+		setupScennary2();
+
+		assertThrows(NegativeArraySizeException.class,()->{
+			magic.createSquare(-3);
+		});
+	}
 	
 	@Test
 	void testfills() {
